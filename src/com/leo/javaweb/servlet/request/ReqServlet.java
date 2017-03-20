@@ -1,6 +1,8 @@
 package com.leo.javaweb.servlet.request;
 
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,9 @@ public class ReqServlet extends HttpServlet {
 	    System.out.println("请求URI："+uri);
 	    //获取参数部分，即问号后面的部分  ?username=1&password=1
 	    String param=request.getQueryString();
+	    ServletContext context=this.getServletContext();
+	    Integer count=(Integer) context.getAttribute("count");
+	    System.out.println("count:"+count);
 	}
 
 }

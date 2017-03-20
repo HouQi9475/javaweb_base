@@ -40,6 +40,9 @@ public class countServlet extends HttpServlet {
 		}
 		response.getWriter().print("<h1>这是第"+count+"次访问！</h1>");
 		context.setAttribute("count", count);
+		// ServletContext获取资源路径,带盘符的路径
+		String path=context.getRealPath("request.html");
+		System.out.println(path);
 		
 	}
 

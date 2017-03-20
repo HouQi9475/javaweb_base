@@ -46,7 +46,7 @@ public class Aservlet implements Servlet {
 	@Override
 	public void init(ServletConfig servletConfig) throws ServletException {
 		// TODO Auto-generated method stub
-		System.out.println("servletConfig。。。");
+		System.out.println("init。。。");
 
 	}
 
