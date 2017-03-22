@@ -40,6 +40,14 @@ public class SessionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//判断验证码是否正确，如果不正确，错误信息写入request.转发到login.jsp
+		String vcode=request.getParameter("vcode");
+		String session_code=(String) request.getSession().getAttribute("vcode");
+		if(!session_code.equalsIgnoreCase(vcode)){
+			request.setAttribute("error", "验证码错误!");
+			request.getRequestDispatcher("/session/login.jsp").forward(request, response);
+			return;
+		}
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");

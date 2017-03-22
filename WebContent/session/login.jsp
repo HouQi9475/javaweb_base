@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+   function change() {
+	   var img = document.getElementById("img");
+	   img.src="/javaweb_base/VcodeServlet?a="+new Date().getTime();
+	
+}
+</script>
 </head>
 <body>
 <h1>登录</h1><br/>
@@ -31,9 +38,25 @@
   
 %>
 <form action="/javaweb_base/SessionServlet" method="post">
-用户名：<input type="text" name="username" value="<%=uname%>"/><br/>
-密码：<input type="password" name="password"/><br/>
-<input type="submit" value="登录"/>
+<table>
+<tr>
+   <td>用户名：</td>
+    <td><input type="text" name="username" value="<%=uname%>"/></td>
+</tr>
+<tr>
+   <td>密码：</td>
+   <td><input type="password" name="password"/></td>
+</tr>
+<tr>
+   <td>验证码：</td>
+   <td><input type="text" name="vcode" size="5"><img id="img" alt="验证码" src="/javaweb_base/VcodeServlet"><a href="javascript:change();">换一张</a></td>
+</tr>
+<tr>
+   <td colspan="2"><input type="submit" value="登录"/></td>
+</tr>
+
+
+</table>
 </form>
 
 </body>
